@@ -10,8 +10,9 @@ import {
 	Redirect,
 } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
+import { connect } from "react-redux";
 
-function App() {
+function App({ currentItem }) {
 	return (
 		<Router>
 			<div className="App">
@@ -19,11 +20,21 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Movies} />
 					<Route exact path="/cart" component={Cart} />
-					<Route exact path="/movie/:id" component={SingleItem} />
+					{!currentItem ? (
+						<Redirect to="/" />
+					) : (
+						<Route exact path="/movie/:id" component={SingleItem} />
+					)}
 				</Switch>
 			</div>
 		</Router>
 	);
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		currentItem: state.shop.currentItem,
+	};
+};
+
+export default connect(mapStateToProps)(App);

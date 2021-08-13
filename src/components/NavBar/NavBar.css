@@ -1,26 +1,28 @@
 .navbar {
+	z-index: 1;
 	font-family: var(--primary-font);
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1.2rem;
-	background: var(--primary-color);
+	background: white;
 	position: sticky;
 	top: 0;
 	left: 0;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .navbar__logo {
 	margin-left: 30px;
 	font-size: 40px;
 	font-weight: bold;
-	color: #fff;
+	color: rgb(80, 80, 80);
 }
 
 .navbar__cart {
-	background: #fff;
-	width: 200px;
+	background: rgb(224, 224, 224);
+	width: 160px;
 	border: none;
 	border-radius: 10px;
 	display: flex;
@@ -28,7 +30,7 @@
 	align-items: center;
 	padding: 0.5rem;
 	cursor: pointer;
-    margin-right: 30px;
+	margin-right: 30px;
 }
 
 .navbar__cart:hover {
@@ -43,10 +45,10 @@
 }
 
 .cart__image {
-	width: 20px;
-	height: 20px;
+	font-size: 1.7rem;
 	object-fit: contain;
-	margin-right: -50px;
+	margin-right: -20px;
+	color: var(--primary-color);
 }
 
 .cart__counter {
@@ -55,7 +57,7 @@
 	/* border: 1px solid var(--secondary-color); */
 	border-radius: 50%;
 	color: var(--dark-color);
-	background: var(--light-color);
+	background: rgb(255, 249, 249);
 	font-size: 16px;
 	display: flex;
 	justify-content: center;

@@ -1,8 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+	addToCart,
+	loadCurrentItem,
+} from "../../../redux/Shopping/shopping-actions";
 import "./Movie.css";
 
-const Movie = ({ movieData }) => {
+const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 	return (
 		<div className="movie">
 			<div className="movie-img">
@@ -13,18 +18,40 @@ const Movie = ({ movieData }) => {
 				/>
 			</div>
 			<div className="movie__details">
-				<Link to={`/movie/someID`}>
-					<p className="details__title">{movieData.title}</p>
-					<p className="details__desc">{movieData.description}</p>
+				<Link to={`/movie/${movieData.id}`}>
+					<p
+						onClick={() => loadCurrentItem(movieData)}
+						className="details__title"
+					>
+						{movieData.title}
+					</p>
+					<p
+						onClick={() => loadCurrentItem(movieData)}
+						className="details__desc"
+					>
+						{movieData.description}
+					</p>
 				</Link>
 				<p className="details__price">${movieData.price}</p>
 			</div>
 
 			<div className="movie__buttons">
-				<button className="buttons__btn buttons__add">Add To Cart</button>
+				<button
+					onClick={() => addToCart(movieData.id)}
+					className="buttons__btn buttons__add"
+				>
+					Add To Cart
+				</button>
 			</div>
 		</div>
 	);
 };
 
-export default Movie;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addToCart: (id) => dispatch(addToCart(id)),
+		loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Movie);

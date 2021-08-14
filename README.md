@@ -1,10 +1,10 @@
 # Shopping Cart Demo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and accompanied by Redux.
+You can find this online here at, [awesome-cart.netlify.app](https://awesome-cart.netlify.app/ "https://awesome-cart.netlify.app/")
 
-## Available Scripts
+## To run this project locally,
 
-In the project directory, you can run:
+Download the zip, extract it, and In the project directory, you can run:
 
 ### `yarn start`
 

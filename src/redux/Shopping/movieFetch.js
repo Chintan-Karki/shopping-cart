@@ -1,5 +1,5 @@
 const getMovieList = async () => {
-	const url = `https://api.themoviedb.org/3/search/movie?api_key=d90c8d9f8b3f091a3b2e7b14989915c6&query=Jack+Reacher`;
+	const url = ``;
 	try {
 		fetch(url)
 			.then((data) => data.json())

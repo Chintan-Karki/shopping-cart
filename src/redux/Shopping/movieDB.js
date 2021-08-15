@@ -66,7 +66,7 @@ export const moviesList = [
 // let newDataSet = [];
 
 // async function getMovieList() {
-// 	const url = `https://api.themoviedb.org/3/search/movie?api_key=d90c8d9f8b3f091a3b2e7b14989915c6&query=avengers`;
+// 	const url = `https://api.themoviedb.org/3/search/movie?api_key=\{...}&query=avengers`;
 // 	try {
 // 		const result = await fetch(url);
 // 		const data = await result.json();

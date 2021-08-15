@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Movies.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
+import { moviesList } from "../../redux/Shopping/movieDB";
 
 import Movie from "./Movie/Movie";
 
-const Products = ({ movies }) => {
+const Products = () => {
+	const [movies, setMovies] = useState(moviesList);
 	return (
 		<div className="movies">
 			{movies.map((movie) => (
@@ -14,12 +16,12 @@ const Products = ({ movies }) => {
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-		movies: state.shop.movies,
-	};
-};
+export default Products;
 
-export default connect(mapStateToProps)(Products);
+// const mapStateToProps = (state) => {
+// 	return {
+// 		movies: state.shop.movies,
+// 	};
+// };
 
-
+// export default connect(mapStateToProps)(Products);

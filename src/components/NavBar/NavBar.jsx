@@ -23,7 +23,10 @@ const Navbar = ({ cart }) => {
 			<Link to="/cart">
 				<div className="navbar__cart">
 					<h3 className="cart__title">Cart</h3>
-					<i class="cart__image uil uil-shopping-cart-alt" alt="shopping cart"></i>
+					<i
+						className="cart__image uil uil-shopping-cart-alt"
+						alt="shopping cart"
+					></i>
 					<div className="cart__counter">{cartCount}</div>
 				</div>
 			</Link>

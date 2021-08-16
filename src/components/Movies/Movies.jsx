@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loader from "react-loader-spinner";
 import "./Movies.css";
 
 import { connect } from "react-redux";
@@ -39,7 +40,13 @@ const Products = ({ movies, loadMovies }) => {
 				{movies.length !== 0 ? (
 					movies.map((movie) => <Movie key={movie.id} movieData={movie} />)
 				) : (
-					<h1>Loading..</h1>
+					<Loader
+						type="Bars"
+						color="#79531a"
+						height={100}
+						width={100}
+						timeout={3000} //3 secs
+					/>
 				)}
 			</div>
 		</>

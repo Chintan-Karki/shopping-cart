@@ -10,6 +10,8 @@ import {
 	Redirect,
 } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import { connect } from "react-redux";
 
 function App({ currentItem }) {

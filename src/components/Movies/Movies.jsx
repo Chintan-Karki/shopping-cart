@@ -9,19 +9,19 @@ import { loadTmdbMovies } from "../../redux/Shopping/shopping-actions";
 
 const Products = ({ movies, loadMovies }) => {
 	const [dataSet, setDataSet] = useState([]);
-	const [query, setQuery] = useState("Avengers");
 	const [value, setValue] = useState("");
+	const [query, setQuery] = useState(value);
 
 	useEffect(() => {
 		requestMovies();
-		loadMovies(dataSet);
-		// eslint-disable-next-line
-	}, [dataSet, loadMovies]);
+	}, [query, setQuery]);
 
 	async function requestMovies() {
 		const API_KEY = process.env.REACT_APP_API_KEY;
 		const res = await fetch(
-			`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+			`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${
+				query === "" ? "Avengers" : query
+			}`
 		);
 		const json = await res.json();
 		const moviesData = await json.results;
@@ -36,15 +36,12 @@ const Products = ({ movies, loadMovies }) => {
 			});
 		});
 		setDataSet([...newDataSet]);
+		loadMovies(newDataSet);
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setQuery(value);
-	};
-
-	const handleChange = (e) => {
-		setValue(e.target.value);
 	};
 
 	return (
@@ -55,7 +52,7 @@ const Products = ({ movies, loadMovies }) => {
 					name="name"
 					value={value}
 					placeholder="e.g. Avengers"
-					onChange={handleChange}
+					onChange={(e) => setValue(e.target.value)}
 				/>
 				<input type="submit" value="Submit" />
 			</form>
@@ -68,7 +65,6 @@ const Products = ({ movies, loadMovies }) => {
 						color="#79531a"
 						height={100}
 						width={100}
-						timeout={3000} //3 secs
 					/>
 				)}
 			</div>

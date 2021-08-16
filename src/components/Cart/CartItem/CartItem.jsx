@@ -41,7 +41,7 @@ const CartItem = ({ itemData, removeFromCart, adjustQuantity }) => {
 					onClick={() => removeFromCart(itemData.id)}
 					className="actions__deleteItemBtn"
 				>
-					<i class="uil uil-trash-alt"></i>
+					<i className="uil uil-trash-alt"></i>
 				</button>
 			</div>
 		</div>

@@ -1,15 +1,19 @@
 import * as actionTypes from "./shopping-types";
-import { moviesList } from "./movieDB";
 
 const INITIAL_STATE = {
-	movies: moviesList, // {id, title, description, price, img}
+	movies: [], // {id, title, description, price, img}
 	cart: [], // {id, title, description, price, img, qty}
 	currentItem: null, //
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
-	
 	switch (action.type) {
+		case actionTypes.LOAD_TMDB_MOVIES:
+			return {
+				...state,
+				movies: [...action.payload.movies],
+			};
+
 		case actionTypes.ADD_TO_CART:
 			const item = state.movies.find((movie) => movie.id === action.payload.id);
 			const isInCart = state.cart.find((item) =>

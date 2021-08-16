@@ -1,0 +1,31 @@
+let newDataSet = [];
+
+async function getMovieList() {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=\{...}&query=avengers`;
+    try {
+        const result = await fetch(url);
+        const data = await result.json();
+        newDataSet = await [...data.results];
+            fetch(url)
+                .then((data) => data.json())
+                .then((data) => {
+                    newDataSet = data.results;
+                });
+            images at `https://image.tmdb.org/t/p/w185_and_h278_bestv2/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg`
+    } catch (error) {
+        console.log(error);
+    }
+}
+console.log(newDataSet);
+
+obj structure:
+
+{
+		id: 7,
+		title: "The GodFather",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsa esse hic eaque fuga saepe suscipit nostrum quod et fugit consequatur nihil velit itaque asperiores commodi, voluptatum consequuntur alias assumenda.",
+		price: 13.0,
+		image:
+			"https://media.tacdn.com/media/attractions-splice-spp-674x446/06/73/23/1c.jpg",
+	},

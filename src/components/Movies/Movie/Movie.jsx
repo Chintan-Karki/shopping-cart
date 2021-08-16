@@ -29,7 +29,7 @@ const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 						onClick={() => loadCurrentItem(movieData)}
 						className="details__desc"
 					>
-						{movieData.description}
+						{movieData.description.substring(0, 250) + "..."}
 					</p>
 				</Link>
 				<p className="details__price">${movieData.price}</p>

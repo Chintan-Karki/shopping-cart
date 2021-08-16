@@ -1,5 +1,13 @@
 import * as actionTypes from "./shopping-types";
 
+export const loadTmdbMovies = (movies) => {
+	return {
+		type: actionTypes.LOAD_TMDB_MOVIES,
+		payload: {
+			movies: movies,
+		},
+	};
+};
 export const addToCart = (itemID) => {
 	return {
 		type: actionTypes.ADD_TO_CART,

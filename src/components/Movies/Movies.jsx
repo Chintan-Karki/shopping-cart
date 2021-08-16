@@ -9,16 +9,19 @@ import { loadTmdbMovies } from "../../redux/Shopping/shopping-actions";
 
 const Products = ({ movies, loadMovies }) => {
 	const [dataSet, setDataSet] = useState([]);
+	const [query, setQuery] = useState("Avengers");
+	const [value, setValue] = useState("");
 
 	useEffect(() => {
 		requestMovies();
 		loadMovies(dataSet);
+		// eslint-disable-next-line
 	}, [dataSet, loadMovies]);
 
 	async function requestMovies() {
 		const API_KEY = process.env.REACT_APP_API_KEY;
 		const res = await fetch(
-			`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=avengers`
+			`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
 		);
 		const json = await res.json();
 		const moviesData = await json.results;
@@ -34,14 +37,34 @@ const Products = ({ movies, loadMovies }) => {
 		});
 		setDataSet([...newDataSet]);
 	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setQuery(value);
+	};
+
+	const handleChange = (e) => {
+		setValue(e.target.value);
+	};
+
 	return (
 		<>
+			<form onSubmit={handleSubmit}>
+				<input
+					type="text"
+					name="name"
+					value={value}
+					placeholder="e.g. Avengers"
+					onChange={handleChange}
+				/>
+				<input type="submit" value="Submit" />
+			</form>
 			<div className="movies">
 				{movies.length !== 0 ? (
 					movies.map((movie) => <Movie key={movie.id} movieData={movie} />)
 				) : (
 					<Loader
-						type="Bars"
+						type="BallTriangle"
 						color="#79531a"
 						height={100}
 						width={100}

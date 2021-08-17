@@ -2,7 +2,7 @@
 	width: 1100px;
 	margin: 2rem auto;
 	display: flex;
-    font-family: var(--primary-font);
+	font-family: var(--primary-font);
 }
 
 .singleItem__image {
@@ -15,8 +15,10 @@
 
 .singleItem__details {
 	padding: 1rem;
+	height: auto;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	justify-content: space-between;
 	color: var(--secondary-color);
 }

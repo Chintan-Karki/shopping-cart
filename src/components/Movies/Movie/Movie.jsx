@@ -40,7 +40,7 @@ const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 			<div className="movie__buttons">
 				<button
 					onClick={() => addToCart(movieData.id)}
-					className="buttons__btn buttons__add"
+					className="buttons__add"
 				>
 					Add To Cart
 				</button>

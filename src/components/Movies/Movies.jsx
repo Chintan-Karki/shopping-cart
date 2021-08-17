@@ -29,7 +29,7 @@ const Products = ({ movies, loadMovies }) => {
 					title: item.original_title,
 					description: item.overview,
 					image: `https://image.tmdb.org/t/p/original${item.poster_path}`,
-					price: 10.0,
+					price: 20,
 				});
 			});
 			loadMovies(newDataSet);
@@ -44,19 +44,20 @@ const Products = ({ movies, loadMovies }) => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					name="name"
-					value={value}
-					placeholder="e.g. Avengers"
-					onChange={(e) => {
-						setValue(e.target.value);
-					}}
-				/>
-				<input type="submit" value="Submit" />
-			</form>
 			<div className="movies">
+				<form className="movies-form" onSubmit={handleSubmit}>
+					<input
+						className="movies-form-search"
+						type="text"
+						name="name"
+						value={value}
+						placeholder="e.g. Avengers"
+						onChange={(e) => {
+							setValue(e.target.value);
+						}}
+					/>
+					<input className="movies-form-submit" type="submit" value="SEARCH" />
+				</form>
 				{movies.length !== 0 ? (
 					movies.map((movie) => <Movie key={movie.id} movieData={movie} />)
 				) : (

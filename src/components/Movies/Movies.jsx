@@ -35,6 +35,7 @@ const Products = ({ movies, loadMovies }) => {
 			loadMovies(newDataSet);
 		}
 		requestMovies();
+		// eslint-disable-next-line
 	}, [query]);
 
 	const handleSubmit = (e) => {

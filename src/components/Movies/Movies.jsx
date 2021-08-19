@@ -14,11 +14,12 @@ const Products = ({ movies, loadMovies }) => {
 	useEffect(() => {
 		async function requestMovies() {
 			const API_KEY = process.env.REACT_APP_API_KEY;
-			const res = await fetch(
-				`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${
-					query === "" ? "Avengers" : query
-				}`
-			);
+			let fetchURL =
+				query === ""
+					? `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+					: `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
+
+			const res = await fetch(fetchURL);
 			const json = await res.json();
 			const moviesData = json.results;
 

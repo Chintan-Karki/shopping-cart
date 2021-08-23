@@ -1,18 +1,29 @@
-import { takeEvery, put } from "@redux-saga/core/effects";
+import { takeEvery, put, call } from "@redux-saga/core/effects";
 import * as actionTypes from "./Shopping/shopping-types";
 import { handleLoadMovies } from "../api";
+import {
+	loadTmdbMovies,
+	loadTmdbMoviesSuccess,
+} from "./Shopping/shopping-actions";
+
 // const API_KEY = process.env.REACT_APP_API_KEY;
 
 function* fetchMovies() {
-	console.log("Hello from Saga");
-	// yield put({ type: actionTypes.LOAD_TMDB_MOVIES_SUCCESS });
+	// console.log("Hello from Saga");
+	try {
+		const query = "Avengers";
+		const movies = yield call(handleLoadMovies, query);
+		console.log(movies);
+		yield put(loadTmdbMoviesSuccess(movies));
+	} catch (error) {
+		//   dispatch errors
+		console.log(error);
+	}
 }
 
-function* mySaga() {
+export default function* mySaga() {
 	yield takeEvery(actionTypes.LOAD_TMDB_MOVIES, fetchMovies);
 }
-
-export default mySaga;
 
 // import { takeEvery, select, call, put } from 'redux-saga/effects';
 // import { setError, setImages } from '../actions';

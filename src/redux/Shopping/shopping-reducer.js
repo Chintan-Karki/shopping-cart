@@ -14,6 +14,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				movies: [...action.payload.movies],
 			};
 
+		case actionTypes.LOAD_TMDB_MOVIES_SUCCESS:
+			return {
+				...state,
+				movies: [...action.payload.movies],
+			};
+
 		case actionTypes.ADD_TO_CART:
 			const item = state.movies.find((movie) => movie.id === action.payload.id);
 			const isInCart = state.cart.find((item) =>

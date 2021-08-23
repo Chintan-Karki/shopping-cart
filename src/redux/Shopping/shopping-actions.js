@@ -8,6 +8,16 @@ export const loadTmdbMovies = (movies) => {
 		},
 	};
 };
+
+export const loadTmdbMoviesSuccess = (movies) => {
+	return {
+		type: actionTypes.LOAD_TMDB_MOVIES_SUCCESS,
+		payload: {
+			movies: movies,
+		},
+	};
+};
+
 export const addToCart = (itemID) => {
 	return {
 		type: actionTypes.ADD_TO_CART,

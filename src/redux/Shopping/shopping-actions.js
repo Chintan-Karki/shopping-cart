@@ -1,15 +1,15 @@
 import * as actionTypes from "./shopping-types";
 
-export const loadTmdbMovies = (movies) => {
+export const loadTmdbMovies = (query) => {
 	return {
 		type: actionTypes.LOAD_TMDB_MOVIES,
 		payload: {
-			movies: movies,
+			query,
 		},
 	};
 };
 
-export const loadTmdbMoviesSuccess = (movies) => {
+export const loadMoviesSuccess = (movies) => {
 	return {
 		type: actionTypes.LOAD_TMDB_MOVIES_SUCCESS,
 		payload: {

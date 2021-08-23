@@ -11,7 +11,8 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 		case actionTypes.LOAD_TMDB_MOVIES:
 			return {
 				...state,
-				movies: [...action.payload.movies],
+				query: action.payload.query,
+				// movies: [...action.payload.movies],
 			};
 
 		case actionTypes.LOAD_TMDB_MOVIES_SUCCESS:

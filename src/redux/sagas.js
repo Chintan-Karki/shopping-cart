@@ -1,20 +1,13 @@
 import { takeEvery, put, call } from "@redux-saga/core/effects";
 import * as actionTypes from "./Shopping/shopping-types";
 import { handleLoadMovies } from "../api";
-import {
-	loadTmdbMovies,
-	loadTmdbMoviesSuccess,
-} from "./Shopping/shopping-actions";
+import { loadMoviesSuccess } from "./Shopping/shopping-actions";
 
-// const API_KEY = process.env.REACT_APP_API_KEY;
-
-function* fetchMovies() {
-	// console.log("Hello from Saga");
+function* fetchMovies(action) {
 	try {
-		const query = "Avengers";
+		const query = action.payload.query;
 		const movies = yield call(handleLoadMovies, query);
-		console.log(movies);
-		yield put(loadTmdbMoviesSuccess(movies));
+		yield put(loadMoviesSuccess(movies));
 	} catch (error) {
 		//   dispatch errors
 		console.log(error);

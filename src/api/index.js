@@ -12,20 +12,18 @@ const handleLoadMovies = async (query) => {
 	if (res.status >= 400) {
 		throw new Error(data.errors);
 	}
-	return data;
-	// const moviesData = data.results;
-	// console.log(moviesData);
-	// let tempDataSet = [];
-	// moviesData.forEach((item) => {
-	// 	tempDataSet.push({
-	// 		id: item.id,
-	// 		title: item.original_title,
-	// 		description: item.overview,
-	// 		image: `https://image.tmdb.org/t/p/original${item.poster_path}`,
-	// 		price: 20,
-	// 	});
-	// });
-	// return tempDataSet;
+	const moviesData = data.results;
+	let tempDataSet = [];
+	moviesData.forEach((item) => {
+		tempDataSet.push({
+			id: item.id,
+			title: item.original_title,
+			description: item.overview,
+			image: `https://image.tmdb.org/t/p/original${item.poster_path}`,
+			price: 20,
+		});
+	});
+	return tempDataSet;
 };
 
 export { handleLoadMovies };

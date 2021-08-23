@@ -12,39 +12,13 @@ const Products = ({ movies, loadMovies }) => {
 	const [value, setValue] = useState("");
 
 	useEffect(() => {
-		requestMovies();
+		loadMovies(query);
 		// eslint-disable-next-line
 	}, [query]);
-
-	async function requestMovies() {
-		const API_KEY = process.env.REACT_APP_API_KEY;
-		let fetchURL =
-			query === ""
-				? `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-				: `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
-
-		const res = await fetch(fetchURL);
-		const json = await res.json();
-		const moviesData = json.results;
-
-		let tempDataSet = [];
-		
-		moviesData.forEach((item) => {
-			tempDataSet.push({
-				id: item.id,
-				title: item.original_title,
-				description: item.overview,
-				image: `https://image.tmdb.org/t/p/original${item.poster_path}`,
-				price: 20,
-			});
-		});
-		loadMovies(tempDataSet);
-	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setQuery(value);
-		requestMovies();
 	};
 
 	return (
@@ -83,12 +57,13 @@ const Products = ({ movies, loadMovies }) => {
 const mapStateToProps = (state) => {
 	return {
 		movies: state.shop.movies,
+		query: state.shop.query,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		loadMovies: (movies) => dispatch(loadTmdbMovies(movies)),
+		loadMovies: (query) => dispatch(loadTmdbMovies(query)),
 	};
 };
 

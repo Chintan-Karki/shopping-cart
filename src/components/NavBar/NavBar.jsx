@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 import { connect } from "react-redux";
+import SelectionBar from "./selectionBar/selectionBar";
 
 const Navbar = ({ cart }) => {
 	const [cartCount, setCartCount] = useState(0);
@@ -16,6 +17,8 @@ const Navbar = ({ cart }) => {
 	}, [cart, cartCount]);
 
 	return (
+		<>
+		
 		<div className="navbar">
 			<Link to="/">
 				<h2 className="navbar__logo">Movie Cart</h2>
@@ -32,6 +35,9 @@ const Navbar = ({ cart }) => {
 				</div>
 			</Link>
 		</div>
+		<SelectionBar/>
+		</>
+
 	);
 };
 

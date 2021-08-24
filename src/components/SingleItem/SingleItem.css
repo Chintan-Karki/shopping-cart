@@ -1,12 +1,12 @@
 .singleItem {
-	width: 1100px;
+	width: 900px;
 	margin: 2rem auto;
 	display: flex;
 	font-family: var(--primary-font);
 }
 
 .singleItem__image {
-	width: 600px;
+	height: 300px;
 	object-fit: contain;
 	margin-right: 1rem;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -14,6 +14,7 @@
 }
 
 .singleItem__details {
+	height: 300px;
 	padding: 1rem;
 	height: auto;
 	display: flex;
@@ -28,9 +29,18 @@
 	font-size: 1.2rem;
 	font-weight: bold;
 }
+.details__lang {
+	font-size: 0.8rem;
+	font-weight: 300;
+}
+
+.details__release {
+	font-size: 0.8rem;
+	font-weight: 500;
+}
 
 .details__description {
-	font-size: 1rem;
+	font-size: 0.9rem;
 }
 
 .details__addBtn {
@@ -44,6 +54,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	outline: none;
+	margin-bottom: -16px;
 }
 
 .details__addBtn:hover {

@@ -5,6 +5,7 @@ import {
 	addToCart,
 	loadCurrentItem,
 } from "../../../redux/Shopping/shopping-actions";
+
 import "./Movie.css";
 
 const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
@@ -30,7 +31,7 @@ const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 						className="details__desc"
 					>
 						{movieData.description !== ""
-							? movieData.description.substring(0, 250) + "..."
+							? movieData.description.substring(0, 200) + "..."
 							: "Description not found"}
 					</p>
 				</Link>

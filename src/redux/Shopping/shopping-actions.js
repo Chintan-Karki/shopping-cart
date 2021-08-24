@@ -9,9 +9,39 @@ export const loadTmdbMovies = (query) => {
 	};
 };
 
+export const loadTvShows = () => {
+	return {
+		type: actionTypes.LOAD_TMDB_TV_SHOWS,
+	};
+};
+
+export const loadUpcoming = () => {
+	return {
+		type: actionTypes.LOAD_UPCOMING,
+	};
+};
+
 export const loadMoviesSuccess = (movies) => {
 	return {
 		type: actionTypes.LOAD_TMDB_MOVIES_SUCCESS,
+		payload: {
+			movies: movies,
+		},
+	};
+};
+
+export const loadTvShowsSuccess = (tvShows) => {
+	return {
+		type: actionTypes.LOAD_TMDB_TV_SHOWS_SUCCESS,
+		payload: {
+			tvShows: tvShows,
+		},
+	};
+};
+
+export const loadUpcomingSuccess = (movies) => {
+	return {
+		type: actionTypes.LOAD_UPCOMING_SUCCESS,
 		payload: {
 			movies: movies,
 		},

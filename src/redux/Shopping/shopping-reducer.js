@@ -4,6 +4,7 @@ const INITIAL_STATE = {
 	movies: [], // {id, title, description, price, img}
 	cart: [], // {id, title, description, price, img, qty}
 	currentItem: null, //
+	tvShows: [],
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -19,6 +20,23 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				movies: [...action.payload.movies],
+			};
+		
+		case actionTypes.LOAD_UPCOMING_SUCCESS:
+			return {
+				...state,
+				movies: [...action.payload.movies],
+			};
+
+		case actionTypes.LOAD_TMDB_TV_SHOWS:
+			return {
+				...state,
+			};
+
+		case actionTypes.LOAD_TMDB_TV_SHOWS_SUCCESS:
+			return {
+				...state,
+				tvShows: [...action.payload.tvShows],
 			};
 
 		case actionTypes.ADD_TO_CART:

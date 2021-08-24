@@ -1,13 +1,7 @@
 const fetch = require("node-fetch");
-const API_KEY = process.env.REACT_APP_API_KEY;
 
-const handleLoadMovies = async (query) => {
-	let fetchURL =
-		query === ""
-			? `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-			: `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
-
-	const res = await fetch(fetchURL);
+const handleLoadMovies = async (urlMovies) => {
+	const res = await fetch(urlMovies);
 	const data = await res.json();
 	if (res.status >= 400) {
 		throw new Error(data.errors);
@@ -21,12 +15,36 @@ const handleLoadMovies = async (query) => {
 			description: item.overview,
 			image: `https://image.tmdb.org/t/p/original${item.poster_path}`,
 			price: 20,
+			original_language: item.original_language,
+			release_date: item.release_date,
 		});
 	});
 	return tempDataSet;
 };
 
-export { handleLoadMovies };
+const handleLoadTvShows = async (urlTvShows) => {
+	const res = await fetch(urlTvShows);
+	const data = await res.json();
+	if (res.status >= 400) {
+		throw new Error(data.errors);
+	}
+	const tvShows = data.results;
+	let tempDataSet = [];
+	tvShows.forEach((item) => {
+		tempDataSet.push({
+			id: item.id,
+			title: item.original_name,
+			description: item.overview,
+			image: `https://image.tmdb.org/t/p/original${item.poster_path}`,
+			price: 20,
+			original_language: item.original_language,
+			release_date: item.first_air_date,
+		});
+	});
+	return tempDataSet;
+};
+
+export { handleLoadMovies, handleLoadTvShows };
 
 // Return Data example
 /**

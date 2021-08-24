@@ -1,0 +1,9 @@
+.tvShows {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.tv-title {
+	margin: 30px;
+}

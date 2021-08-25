@@ -13,17 +13,17 @@ function SelectionBar({ loadTvShows, loadUpcoming, loadMovies }) {
 	return (
 		<div className="button--container">
 			<Link to="/">
-				<button onClick={loadMovies}>
+				<button className="selectionBtn" onClick={loadMovies}>
 					Movies <i className="uil uil-film"></i>
 				</button>
 			</Link>
 			<Link to="/tv-shows">
-				<button onClick={loadTvShows}>
+				<button className="selectionBtn" onClick={loadTvShows}>
 					TV Shows <i className="uil uil-tv-retro"></i>
 				</button>
 			</Link>
 			<Link to="/">
-				<button onClick={loadUpcoming}>
+				<button className="selectionBtn" onClick={loadUpcoming}>
 					Upcoming <i className="uil uil-ticket"></i>
 				</button>
 			</Link>

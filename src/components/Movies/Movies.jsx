@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 import Movie from "./Movie/Movie";
 import { loadTmdbMovies } from "../../redux/Shopping/shopping-actions";
+import SelectionBar from "../NavBar/selectionBar/selectionBar";
 
 const Products = ({ movies, loadMovies }) => {
 	const [query, setQuery] = useState("");
@@ -23,20 +24,21 @@ const Products = ({ movies, loadMovies }) => {
 
 	return (
 		<>
+			<SelectionBar />
+			<form className="movies-form" onSubmit={handleSubmit}>
+				<input
+					className="movies-form-search"
+					type="text"
+					name="name"
+					value={value}
+					placeholder="e.g. Avengers"
+					onChange={(e) => {
+						setValue(e.target.value);
+					}}
+				/>
+				<input className="movies-form-submit" type="submit" value="SEARCH" />
+			</form>
 			<div className="movies">
-				<form className="movies-form" onSubmit={handleSubmit}>
-					<input
-						className="movies-form-search"
-						type="text"
-						name="name"
-						value={value}
-						placeholder="e.g. Avengers"
-						onChange={(e) => {
-							setValue(e.target.value);
-						}}
-					/>
-					<input className="movies-form-submit" type="submit" value="SEARCH" />
-				</form>
 				{movies.length !== 0 ? (
 					movies.map((movie) => <Movie key={movie.id} movieData={movie} />)
 				) : (

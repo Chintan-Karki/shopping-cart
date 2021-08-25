@@ -4,7 +4,9 @@ import { loadTvShows } from "../../redux/Shopping/shopping-actions";
 import Loader from "react-loader-spinner";
 
 import TvShow from "./TvShow/TvShow";
-import "./TvShows.css";
+import SelectionBar from "../NavBar/selectionBar/selectionBar";
+
+import "../Movies/Movies.css";
 
 function TvShows({ tvShows, loadTvShows }) {
 	useEffect(() => {
@@ -13,9 +15,16 @@ function TvShows({ tvShows, loadTvShows }) {
 	}, []);
 
 	return (
-		<div className="tvShows">
-			<h1 className="tv-title">Popular TV Shows</h1>
-			<ul>
+		<>
+			<SelectionBar />
+			<h1
+				className="tv-title"
+				style={{ textAlign: "center", marginBottom: "1.2rem" }}
+			>
+				Popular TV Shows
+			</h1>
+
+			<div className="movies">
 				{tvShows.length !== 0 ? (
 					tvShows.map((tvShow) => (
 						<TvShow key={tvShow.id} tvShowData={tvShow} />
@@ -29,8 +38,8 @@ function TvShows({ tvShows, loadTvShows }) {
 						timeout={3000}
 					/>
 				)}
-			</ul>
-		</div>
+			</div>
+		</>
 	);
 }
 

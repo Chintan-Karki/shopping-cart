@@ -40,7 +40,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 			};
 
 		case actionTypes.ADD_TO_CART:
-			const item = state.movies.find((movie) => movie.id === action.payload.id);
+			const item = state.movies.find((movie) => movie.id === action.payload.id) ||state.tvShows.find((movie) => movie.id === action.payload.id);
 			const isInCart = state.cart.find((item) =>
 				item.id === action.payload.id ? true : false
 			);

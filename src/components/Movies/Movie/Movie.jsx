@@ -11,23 +11,27 @@ import "./Movie.css";
 const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 	return (
 		<div className="movie">
-			<img
-				className="movie__image"
-				src={movieData.image}
-				alt={movieData.title}
-			/>
+				<img
+					className="movie__image"
+					src={movieData.image}
+					alt={movieData.title}
+				/>
+
 			<div className="movie__details">
 				<Link to={`/movie/${movieData.id}`}>
 					<p
 						onClick={() => loadCurrentItem(movieData)}
 						className="details__title"
+						title={movieData.title}
 					>
-						{movieData.title}
+						{movieData.title.length >= 24
+							? movieData.title.substring(0, 23) + ".."
+							: movieData.title}
 					</p>
 				</Link>
 				<p onClick={() => loadCurrentItem(movieData)} className="details__desc">
 					{movieData.description !== ""
-						? movieData.description.substring(0, 200) + "..."
+						? movieData.description.substring(0, 100) + "..."
 						: "Description not found"}
 				</p>
 

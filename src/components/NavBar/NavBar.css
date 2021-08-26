@@ -8,14 +8,15 @@
 	padding: 1.2rem;
 	background: white;
 	position: sticky;
+	flex-wrap: wrap;
 	top: 0;
 	left: 0;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .navbar__logo {
+	font-size: 2rem;
 	margin-left: 30px;
-	font-size: 40px;
 	font-weight: bold;
 	color: rgb(80, 80, 80);
 }
@@ -62,4 +63,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+@media (max-width: 500px) {
+	.navbar__logo {
+		font-size: 1.7rem;
+		margin-left: 15px;
+	}
+	.navbar__cart {
+		margin-top: 10px;
+		margin-left: 15px;
+	}
+	.cart__title {
+		font-size: 20px;
+	}
 }

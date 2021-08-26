@@ -1,7 +1,7 @@
 .singleItem {
-	width: 900px;
 	margin: 2rem auto;
 	display: flex;
+	max-width: 800px;
 	font-family: var(--primary-font);
 }
 
@@ -15,7 +15,7 @@
 
 .singleItem__details {
 	height: 300px;
-	padding: 1rem;
+	padding: 0rem 1rem 1rem 1rem;
 	height: auto;
 	display: flex;
 	flex-direction: column;
@@ -44,7 +44,7 @@
 }
 
 .details__addBtn {
-	width: 45%;
+	width: 10rem;
 	padding: 10px 17px;
 	background: var(--secondary-color);
 	color: var(--light-color);
@@ -54,6 +54,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	outline: none;
+	margin: 0px;
 	margin-bottom: -16px;
 }
 

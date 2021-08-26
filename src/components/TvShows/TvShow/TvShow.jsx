@@ -7,13 +7,11 @@ function TvShow({ tvShowData, addToCart }) {
 	console.log(tvShowData)
 	return (
 		<div className="movie">
-			<div className="movie-img">
 				<img
 					className="movie__image"
 					src={tvShowData.image}
 					alt={tvShowData.title}
 				/>
-			</div>
 			<div className="movie__details" >
 				<p
 					// onClick={() => loadCurrentItem(tvShowData)}

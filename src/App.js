@@ -18,8 +18,8 @@ import TvShows from "./components/TvShows/TvShows";
 function App({ currentItem }) {
 	return (
 		<Router>
+			<Navbar />
 			<div className="App">
-				<Navbar />
 				<Switch>
 					<Route exact path="/" component={Movies} />
 					<Route exact path="/cart" component={Cart} />

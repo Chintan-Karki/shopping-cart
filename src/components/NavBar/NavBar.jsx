@@ -20,7 +20,7 @@ const Navbar = ({ cart }) => {
 		
 		<div className="navbar">
 			<Link to="/">
-				<h2 className="navbar__logo">Movie Cart</h2>
+				<h2 className="navbar__logo">Awesome Cart</h2>
 			</Link>
 			<Link to="/cart">
 				<div className="navbar__cart">

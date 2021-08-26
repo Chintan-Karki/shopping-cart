@@ -14,7 +14,7 @@
 .movies-form {
 	width: 82vw;
 	/* min-width: 500px; */
-	padding: 0 3.5rem 1.5rem;
+	padding: 1rem 3.5rem ;
 	margin: 0px auto;
 
 	display: flex;

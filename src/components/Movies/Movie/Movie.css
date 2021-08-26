@@ -18,21 +18,23 @@
 	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
 		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 	margin: 10px;
+	background-color: rgb(255, 255, 255);
 	transition: 0.2s;
 	/* flex-wrap: wrap; */
 }
 
 .movie:hover {
 	transform: translateY(-0.2rem);
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .movie__image {
 	/* height: 200px; */
 	display: flex;
-	height: 250px;
+	height: 350px;
 	width: 100%;
 	object-fit: cover;
-	border-radius: 10px;
+	border-radius: 10px 10px 0px 0px;
 }
 
 .movie__details {

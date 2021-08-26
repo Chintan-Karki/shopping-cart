@@ -13,15 +13,17 @@ import Cart from "./components/Cart/Cart";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import { connect } from "react-redux";
+import TvShows from "./components/TvShows/TvShows";
 
 function App({ currentItem }) {
 	return (
 		<Router>
+			<Navbar />
 			<div className="App">
-				<Navbar />
 				<Switch>
 					<Route exact path="/" component={Movies} />
 					<Route exact path="/cart" component={Cart} />
+					<Route exact path="/tv-shows" component={TvShows} />
 					{!currentItem ? (
 						<Redirect to="/" />
 					) : (

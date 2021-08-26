@@ -1,14 +1,26 @@
-.movies {
-	width: 100%;
-	margin-top: 2rem;
+.movies:not(.movies-form) {
 	display: flex;
-	flex-direction: column;
+	padding: 0 3.5rem 1.5rem;
 	align-items: center;
+	flex-direction: row;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: center;
+	transition: 0.5s ease-in-out;
+}
+
+@media (max-width: 1034px) {
+	.movies:not(.movies-form) {
+		padding: 0 1rem 1.5rem;
+		transition: 0.5s ease-in-out;
+	}
 }
 
 .movies-form {
-	width: 60vw;
-	min-width: 500px;
+
+	width: 85vw;
+	padding: 1rem 3.5rem;
+	margin: 20px auto 0px auto;
 	display: flex;
 	align-items: center;
 	margin-bottom: 1rem;
@@ -48,4 +60,21 @@
 
 .movies-form-submit:focus {
 	opacity: 0.95;
+}
+
+@media (max-width: 660px) {
+	.movies:not(.movies-form) {
+		padding: 0 1rem 1.5rem;
+		transition: 0.5s ease-in-out;
+	}
+	.movies-form {
+		padding: 0rem;
+		display: flex;
+		flex-direction: row;
+	}
+	.movies-form-submit {
+		width: 40%;
+		padding: 10px 30px;
+		/* margin-left: 1vw; */
+	}
 }

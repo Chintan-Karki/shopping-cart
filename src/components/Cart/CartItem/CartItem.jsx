@@ -21,6 +21,7 @@ const CartItem = ({ itemData, removeFromCart, adjustQuantity }) => {
 				alt={itemData.title}
 			/>
 			<div className="cartItem__details">
+				<p className="details__id">Cart ID: {itemData.id}</p>
 				<p className="details__title">{itemData.title}</p>
 				<p className="details__desc">{itemData.description}</p>
 				<p className="details__price">${itemData.price}</p>

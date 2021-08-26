@@ -4,6 +4,7 @@ const INITIAL_STATE = {
 	movies: [], // {id, title, description, price, img}
 	cart: [], // {id, title, description, price, img, qty}
 	currentItem: null, //
+	tvShows: [],
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -11,11 +12,35 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 		case actionTypes.LOAD_TMDB_MOVIES:
 			return {
 				...state,
+				query: action.payload.query,
+				// movies: [...action.payload.movies],
+			};
+
+		case actionTypes.LOAD_TMDB_MOVIES_SUCCESS:
+			return {
+				...state,
+				movies: [...action.payload.movies],
+			};
+		
+		case actionTypes.LOAD_UPCOMING_SUCCESS:
+			return {
+				...state,
 				movies: [...action.payload.movies],
 			};
 
+		case actionTypes.LOAD_TMDB_TV_SHOWS:
+			return {
+				...state,
+			};
+
+		case actionTypes.LOAD_TMDB_TV_SHOWS_SUCCESS:
+			return {
+				...state,
+				tvShows: [...action.payload.tvShows],
+			};
+
 		case actionTypes.ADD_TO_CART:
-			const item = state.movies.find((movie) => movie.id === action.payload.id);
+			const item = state.movies.find((movie) => movie.id === action.payload.id) ||state.tvShows.find((movie) => movie.id === action.payload.id);
 			const isInCart = state.cart.find((item) =>
 				item.id === action.payload.id ? true : false
 			);

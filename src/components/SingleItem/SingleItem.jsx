@@ -14,7 +14,11 @@ const SingleItem = ({ currentItem, addToCart }) => {
 			<div className="singleItem__details">
 				<p className="details__title">{currentItem.title}</p>
 				<p className="details__description">{currentItem.description}</p>
-				<p className="details__price">{currentItem.price}</p>
+				<p className="details__price">$ {currentItem.price}</p>
+				<p className="details__lang">
+					language: {currentItem.original_language}
+				</p>
+				<p className="details__release">Released: {currentItem.release_date}</p>
 				<button
 					className="details__addBtn"
 					onClick={() => addToCart(currentItem.id)}

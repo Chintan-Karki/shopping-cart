@@ -1,0 +1,73 @@
+.button--container {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	/* min-width: 500px; */
+}
+
+button {
+	margin: 30px 20px;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+
+	font-size: 0.95rem;
+	font-weight: 700;
+	border: none;
+	border-radius: 0.4rem;
+	background-color: rgba(16, 16, 73, 0.863);
+	outline: none;
+	color: rgb(235, 235, 235);
+	cursor: pointer;
+}
+
+.selectionBtn {
+	width: 200px;
+	margin: 20px 10px;
+}
+
+@media (max-width: 660px) {
+	.selectionBtn {
+		width: 85vw;
+		min-width: 200px;
+		margin: 5px 30px ;
+
+	}
+}
+
+button:hover {
+	background-color: var(--secondary-color);
+	color: white;
+}
+
+button:focus {
+	opacity: 0.95;
+	background-color: rgb(41, 1, 1);
+}
+
+.btn-selected {
+	opacity: 0.95;
+	background-color: rgb(41, 1, 1);
+}
+
+.uil-film::before,
+.uil-tv-retro::before,
+.uil-ticket::before {
+	height: 10px;
+	font-size: 19px;
+	margin-left: 9px;
+	margin-top: -90px;
+}
+
+.uil-film,
+.uil-tv-retro,
+.uil-ticket {
+	margin-top: -3px;
+}

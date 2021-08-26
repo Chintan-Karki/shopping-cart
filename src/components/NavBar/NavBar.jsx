@@ -16,13 +16,16 @@ const Navbar = ({ cart }) => {
 	}, [cart, cartCount]);
 
 	return (
+		<>
+		
 		<div className="navbar">
 			<Link to="/">
-				<h2 className="navbar__logo">Movie Cart</h2>
+				<h2 className="navbar__logo">Awesome Cart</h2>
 			</Link>
 			<Link to="/cart">
 				<div className="navbar__cart">
 					<h3 className="cart__title">Cart</h3>
+					{/* <img src="../../assets/shopping-cart.svg" alt="cart" /> */}
 					<i
 						className="cart__image uil uil-shopping-cart-alt"
 						alt="shopping cart"
@@ -31,6 +34,8 @@ const Navbar = ({ cart }) => {
 				</div>
 			</Link>
 		</div>
+		</>
+
 	);
 };
 

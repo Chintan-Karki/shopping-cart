@@ -23,7 +23,11 @@ const CartItem = ({ itemData, removeFromCart, adjustQuantity }) => {
 			<div className="cartItem__details">
 				<p className="details__id">Cart ID: {itemData.id}</p>
 				<p className="details__title">{itemData.title}</p>
-				<p className="details__desc">{itemData.description}</p>
+				<p className="details__desc">
+					{itemData.description.length >= 100
+						? itemData.description.substring(0, 97) + "..."
+						: itemData.description}
+				</p>
 				<p className="details__price">${itemData.price}</p>
 			</div>
 			<div className="cartItem__actions">

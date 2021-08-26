@@ -27,6 +27,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				movies: [...action.payload.movies],
 			};
+		
+			// case actionTypes.LOAD_SELECTED_GENRE_SUCCESS:
+			// return {
+			// 	...state,
+			// 	movies: [...action.payload.movies],
+			// };
 
 		case actionTypes.LOAD_TMDB_TV_SHOWS:
 			return {

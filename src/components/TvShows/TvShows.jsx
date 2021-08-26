@@ -7,12 +7,21 @@ import TvShow from "./TvShow/TvShow";
 import SelectionBar from "../NavBar/selectionBar/selectionBar";
 
 import "../Movies/Movies.css";
+// import "./TvShows.css";
 
 function TvShows({ tvShows, loadTvShows }) {
 	useEffect(() => {
 		loadTvShows();
 		//eslint-disable-next-line
 	}, []);
+
+	let styleTV = {
+		maxWidth: "90vw",
+		display: "flex",
+		alignItems: "center",
+		alignContent: "center",
+		justifyContent: "center",
+	};
 
 	return (
 		<>
@@ -24,7 +33,7 @@ function TvShows({ tvShows, loadTvShows }) {
 				Popular TV Shows
 			</h1>
 
-			<div className="movies">
+			<div className="movies " style={styleTV}>
 				{tvShows.length !== 0 ? (
 					tvShows.map((tvShow) => (
 						<TvShow key={tvShow.id} tvShowData={tvShow} />

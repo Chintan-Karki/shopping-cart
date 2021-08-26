@@ -42,8 +42,20 @@ function* fetchUpcoming() {
 	}
 }
 
+function* fetchFilteredMovies(action) {
+	try {
+		const genreID = action.payload;
+		const filteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreID}`;
+		const genre_movies = yield call(handleLoadMovies, filteredMoviesURL);
+		yield put(loadMoviesSuccess(genre_movies));
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 export default function* mySaga() {
 	yield takeLatest(actionTypes.LOAD_TMDB_MOVIES, fetchMovies);
 	yield takeLatest(actionTypes.LOAD_TMDB_TV_SHOWS, fetchTvShows);
 	yield takeLatest(actionTypes.LOAD_UPCOMING, fetchUpcoming);
+	yield takeLatest(actionTypes.LOAD_SELECTED_GENRE, fetchFilteredMovies);
 }

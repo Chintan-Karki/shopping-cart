@@ -4,15 +4,15 @@ import { addToCart } from "../../../redux/Shopping/shopping-actions";
 import "../../Movies/Movie/Movie.css";
 
 function TvShow({ tvShowData, addToCart }) {
-	console.log(tvShowData)
+	
 	return (
 		<div className="movie">
-				<img
-					className="movie__image"
-					src={tvShowData.image}
-					alt={tvShowData.title}
-				/>
-			<div className="movie__details" >
+			<img
+				className="movie__image"
+				src={tvShowData.image}
+				alt={tvShowData.title}
+			/>
+			<div className="movie__details">
 				<p
 					// onClick={() => loadCurrentItem(tvShowData)}
 					className="details__title"
@@ -51,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(null,mapDispatchToProps)(TvShow);
+export default connect(null, mapDispatchToProps)(TvShow);

@@ -17,6 +17,7 @@ const handleLoadMovies = async (urlMovies) => {
 			price: 20,
 			original_language: item.original_language,
 			release_date: item.release_date,
+			genres: [...item.genre_ids],
 		});
 	});
 	return tempDataSet;

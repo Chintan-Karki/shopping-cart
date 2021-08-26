@@ -82,3 +82,10 @@ export const loadCurrentItem = (item) => {
 		payload: item,
 	};
 };
+
+export const loadSelectedGenre = (genreId) => {
+	return {
+		type: actionTypes.LOAD_SELECTED_GENRE,
+		payload: genreId,
+	};
+};

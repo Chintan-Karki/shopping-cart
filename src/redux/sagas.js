@@ -53,9 +53,38 @@ function* fetchFilteredMovies(action) {
 	}
 }
 
+function* fetchDateFilteredMovies(action) {
+	try {
+		const startDate = action.payload.startDate;
+		const stringStartDate =
+			startDate.getFullYear().toString() +
+			"-" +
+			startDate.getMonth().toString().padStart(2, "0") +
+			"-" +
+			startDate.getDate().toString().padStart(2, "0");
+
+		const endDate = action.payload.endDate;
+		const stringEndDate =
+			endDate.getFullYear().toString() +
+			"-" +
+			endDate.getMonth().toString().padStart(2, "0") +
+			"-" +
+			endDate.getDate().toString().padStart(2, "0");
+
+		console.log(stringStartDate);
+		console.log(stringEndDate);
+		const dateFilteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&&include_adult=false&include_video=false&page=1&primary_release_date.gte=${stringStartDate}&primary_release_date.lte=${stringEndDate}`;
+		const genre_movies = yield call(handleLoadMovies, dateFilteredMoviesURL);
+		yield put(loadMoviesSuccess(genre_movies));
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 export default function* mySaga() {
 	yield takeLatest(actionTypes.LOAD_TMDB_MOVIES, fetchMovies);
 	yield takeLatest(actionTypes.LOAD_TMDB_TV_SHOWS, fetchTvShows);
 	yield takeLatest(actionTypes.LOAD_UPCOMING, fetchUpcoming);
 	yield takeLatest(actionTypes.LOAD_SELECTED_GENRE, fetchFilteredMovies);
+	yield takeLatest(actionTypes.FILTER_MOVIES_BY_DATE, fetchDateFilteredMovies);
 }

@@ -8,6 +8,9 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 	margin: 0.6rem -50px 0px 10%;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 100px;
 }
 
 .FilterBtn {
@@ -26,5 +29,49 @@
 
 .FilterBtn:focus {
 	color: white;
+	background-color: rgb(10, 39, 65);
+}
+
+.date-filter {
+	margin-top: 20px;
+	padding: 10px 0px;
+	border-top: 0.5px solid rgb(165, 165, 165);
+}
+
+.label {
+	font-size: 0.7rem;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.calendar-input {
+	display: inline-block;
+	margin-left: 20px;
+	width: 120px;
+	font-size: 0.6rem;
+	color: rgba(0, 0, 0, 0.4);
+	padding: 0px 4px 0px 4px;
+}
+
+.calendar {
+	margin: 10px 0px 2px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filter-by-date {
+	font-size: 0.7rem;
+	font-weight: 300;
+	padding: 10px;
+	margin: 10px 0px 0px;
+	height: 20px;
+	width: 100%;
+	color: rgb(49, 49, 49);
+	background-color: rgb(235, 244, 252);
+	border: 1px solid rgba(27, 31, 35, 0.15);
+}
+
+.filter-by-date:focus {
+	color: rgb(235, 244, 252);
 	background-color: rgb(10, 39, 65);
 }

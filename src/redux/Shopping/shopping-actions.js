@@ -89,3 +89,13 @@ export const loadSelectedGenre = (genreId) => {
 		payload: genreId,
 	};
 };
+
+export const filterMoviesByDate = (startDate, endDate) => {
+	return {
+		type: actionTypes.FILTER_MOVIES_BY_DATE,
+		payload: {
+			startDate: startDate,
+			endDate: endDate,
+		},
+	};
+};

@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { connect } from "react-redux";
-import { loadSelectedGenre } from "../../redux/Shopping/shopping-actions";
+import {
+	loadSelectedGenre,
+	filterMoviesByDate,
+} from "../../redux/Shopping/shopping-actions";
 import "./Filters.css";
 
-function Filters({ loadSelectedGenre }) {
+function Filters({ loadSelectedGenre, filterMoviesByDate }) {
 	let [genres, setGenres] = useState([]);
+
+	let [startDate, setStartDate] = useState();
+	let [endDate, setEndDate] = useState();
 
 	useEffect(() => {
 		const fetchGenres = async () => {
@@ -17,6 +23,24 @@ function Filters({ loadSelectedGenre }) {
 		};
 		fetchGenres();
 	}, []);
+
+	// const handleStartDateChange = async (value) => {
+	// 	let std = new Date(value);
+	// 	await setStartDate(std);
+	// 	endDate =
+	// 		typeof endDate !== typeof startDate ? (endDate = new Date()) : endDate;
+	// 	console.log(startDate, "\n", endDate);
+	// };
+
+	// const handleEndDateChange = async (value) => {
+	// 	let edt = new Date(value);
+	// 	await setEndDate(edt);
+	// 	console.log(startDate, "\n", endDate);
+	// };
+	const handleFilterDateSubmit = (e) => {
+		e.preventDefault();
+		filterMoviesByDate(startDate, endDate);
+	};
 
 	return (
 		<>
@@ -30,6 +54,39 @@ function Filters({ loadSelectedGenre }) {
 						{genre.name}
 					</button>
 				))}
+				<div className="date-filter">
+					<form onSubmit={handleFilterDateSubmit}>
+						<span className="calendar">
+							<label htmlFor="release-start" className="label from">
+								From
+							</label>
+							<input
+								type="date"
+								id="release release-start"
+								name="release-start"
+								className="calendar-input"
+								// value={startDateFilter}
+								onChange={(e) => setStartDate(new Date(e.target.value))}
+							/>
+						</span>
+						<span className="calendar">
+							<label htmlFor="release-end" className="label to">
+								To
+							</label>
+							<input
+								type="date"
+								id="release release-end"
+								name="release-end"
+								className="calendar-input"
+								// value={endDateFilter}
+								onChange={(e) => setEndDate(new Date(e.target.value))}
+							/>
+						</span>
+						<button className="filter-by-date" type="submit">
+							Filter by date
+						</button>
+					</form>
+				</div>
 			</aside>
 		</>
 	);
@@ -40,6 +97,8 @@ function Filters({ loadSelectedGenre }) {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		loadSelectedGenre: (genreID) => dispatch(loadSelectedGenre(genreID)),
+		filterMoviesByDate: (startDate, endDate) =>
+			dispatch(filterMoviesByDate(startDate, endDate)),
 	};
 };
 

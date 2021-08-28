@@ -26,7 +26,7 @@ const Products = ({ movies, loadMovies }) => {
 	return (
 		<>
 			<SelectionBar />
-			<form className="movies-form" onSubmit={handleSubmit}>
+			<form className="movies-form" onChange={handleSubmit}>
 				<input
 					className="movies-form-search"
 					type="text"
@@ -37,7 +37,7 @@ const Products = ({ movies, loadMovies }) => {
 						setValue(e.target.value);
 					}}
 				/>
-				<input className="movies-form-submit" type="submit" value="SEARCH" />
+				{/* <input className="movies-form-submit" type="submit" value="SEARCH" /> */}
 			</form>
 			<main className="main__container">
 				<Filters />

@@ -71,13 +71,14 @@ function* fetchDateFilteredMovies(action) {
 			"-" +
 			endDate.getDate().toString().padStart(2, "0");
 
-		console.log(stringStartDate);
-		console.log(stringEndDate);
+		// use date-fns library to format date into strings
+		// use a function to generate url by providing filter oject
+
 		const dateFilteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&&include_adult=false&include_video=false&page=1&primary_release_date.gte=${stringStartDate}&primary_release_date.lte=${stringEndDate}`;
 		const genre_movies = yield call(handleLoadMovies, dateFilteredMoviesURL);
 		yield put(loadMoviesSuccess(genre_movies));
 	} catch (error) {
-		console.log(error);
+		alert("You need to fill both the dates");
 	}
 }
 

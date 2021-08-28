@@ -24,22 +24,13 @@ function Filters({ loadSelectedGenre, filterMoviesByDate }) {
 		fetchGenres();
 	}, []);
 
-	// const handleStartDateChange = async (value) => {
-	// 	let std = new Date(value);
-	// 	await setStartDate(std);
-	// 	endDate =
-	// 		typeof endDate !== typeof startDate ? (endDate = new Date()) : endDate;
-	// 	console.log(startDate, "\n", endDate);
-	// };
-
-	// const handleEndDateChange = async (value) => {
-	// 	let edt = new Date(value);
-	// 	await setEndDate(edt);
-	// 	console.log(startDate, "\n", endDate);
-	// };
 	const handleFilterDateSubmit = (e) => {
 		e.preventDefault();
-		filterMoviesByDate(startDate, endDate);
+		try {
+			filterMoviesByDate(startDate, endDate);
+		} catch (error) {
+			alert("Please fill both the dates.");
+		}
 	};
 
 	return (

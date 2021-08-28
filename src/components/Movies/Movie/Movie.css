@@ -39,6 +39,7 @@
 }
 .details__desc {
 	color: var(--secondary-color);
+	overflow: initial;
 }
 .movie__buttons {
 	height: 80px;

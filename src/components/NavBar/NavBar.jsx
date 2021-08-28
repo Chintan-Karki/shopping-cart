@@ -17,7 +17,6 @@ const Navbar = ({ cart }) => {
 
 	return (
 		<>
-		
 		<div className="navbar">
 			<Link to="/">
 				<h2 className="navbar__logo">Awesome Cart</h2>

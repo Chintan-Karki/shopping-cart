@@ -7,11 +7,10 @@
 	justify-content: space-between;
 	flex-wrap: nowrap;
 	flex-direction: row;
-
 }
 
 .cartItem__image {
-	height: 250px;
+	height: 200px;
 	object-fit: contain;
 	border-radius: 10px;
 }

@@ -10,13 +10,18 @@ import "./Movie.css";
 
 const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 	return (
-		<div className="movie">
-				<img
-					className="movie__image"
-					src={movieData.image}
-					alt={movieData.title}
-				/>
-
+		<article
+			className="movie"
+			style={{
+				justifyContent: "center",
+				marginLeft: "12px",
+			}}
+		>
+			<img
+				className="movie__image"
+				src={movieData.image}
+				alt={movieData.title}
+			/>
 			<div className="movie__details">
 				<Link to={`/movie/${movieData.id}`}>
 					<p
@@ -24,8 +29,8 @@ const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 						className="details__title"
 						title={movieData.title}
 					>
-						{movieData.title.length >= 24
-							? movieData.title.substring(0, 23) + ".."
+						{movieData.title.length >= 29
+							? movieData.title.substring(0, 29) + ".."
 							: movieData.title}
 					</p>
 				</Link>
@@ -46,7 +51,7 @@ const Movie = ({ movieData, addToCart, loadCurrentItem }) => {
 					Add To Cart
 				</button>
 			</div>
-		</div>
+		</article>
 	);
 };
 

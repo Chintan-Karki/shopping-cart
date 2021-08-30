@@ -6,27 +6,28 @@ import { connect } from "react-redux";
 import {
 	loadTmdbMovies,
 	loadTvShows,
-	loadUpcoming,
+	// loadUpcoming,
 } from "../../../redux/Shopping/shopping-actions";
 
 function SelectionBar({ loadTvShows, loadUpcoming, loadMovies }) {
 	return (
 		<div className="button--container">
 			<Link to="/">
-				<button className="selectionBtn" onClick={loadMovies}>
+				<p className="selectionBtn" onClick={loadMovies}>
 					Movies <i className="uil uil-film"></i>
-				</button>
+				</p>
 			</Link>
+			<p> | </p>
 			<Link to="/tv-shows">
-				<button className="selectionBtn" onClick={loadTvShows}>
+				<p className="selectionBtn" onClick={loadTvShows}>
 					TV Shows <i className="uil uil-tv-retro"></i>
-				</button>
+				</p>
 			</Link>
-			<Link to="/">
+			{/* <Link to="/">
 				<button className="selectionBtn" onClick={loadUpcoming}>
 					Upcoming <i className="uil uil-ticket"></i>
 				</button>
-			</Link>
+			</Link> */}
 		</div>
 	);
 }
@@ -34,7 +35,7 @@ function SelectionBar({ loadTvShows, loadUpcoming, loadMovies }) {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		loadTvShows: () => dispatch(loadTvShows()),
-		loadUpcoming: () => dispatch(loadUpcoming()),
+		// loadUpcoming: () => dispatch(loadUpcoming()),
 		loadMovies: () => dispatch(loadTmdbMovies("")),
 	};
 };

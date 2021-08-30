@@ -1,12 +1,10 @@
 .button--container {
 	display: flex;
+	justify-content: flex-start;
 	align-items: center;
-	align-content: center;
-	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin: 0 auto;
-	/* min-width: 500px; */
+	margin: 0px 0px 0px 30px;
 }
 
 button {
@@ -29,17 +27,8 @@ button {
 }
 
 .selectionBtn {
-	width: 200px;
-	margin: 20px 10px;
-}
-
-@media (max-width: 660px) {
-	.selectionBtn {
-		width: 85vw;
-		min-width: 200px;
-		margin: 5px 30px ;
-
-	}
+	/* width: fit-content; */
+	margin: 15px 20px;
 }
 
 button:hover {

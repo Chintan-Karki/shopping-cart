@@ -82,3 +82,20 @@ export const loadCurrentItem = (item) => {
 		payload: item,
 	};
 };
+
+export const loadSelectedGenre = (genreId) => {
+	return {
+		type: actionTypes.LOAD_SELECTED_GENRE,
+		payload: genreId,
+	};
+};
+
+export const filterMoviesByDate = (startDate, endDate) => {
+	return {
+		type: actionTypes.FILTER_MOVIES_BY_DATE,
+		payload: {
+			startDate: startDate,
+			endDate: endDate,
+		},
+	};
+};

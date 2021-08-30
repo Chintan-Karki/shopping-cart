@@ -1,0 +1,80 @@
+.Filters {
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	/* height: 200px; */
+	width: 250px;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin: 0.6rem -50px 0px 10%;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 100px;
+}
+
+.FilterBtn {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: fit-content;
+	color: black;
+	background-color: aliceblue;
+	border: 1px solid rgba(27, 31, 35, 0.15);
+	font-size: 0.6rem;
+	padding: 0.5rem 1rem;
+	font-weight: 100;
+	margin: 2px 3px;
+}
+
+.FilterBtn:focus {
+	color: white;
+	background-color: rgb(10, 39, 65);
+}
+
+.date-filter {
+	margin-top: 20px;
+	padding: 10px 0px;
+	border-top: 0.5px solid rgb(165, 165, 165);
+}
+
+.label {
+	font-size: 0.7rem;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.calendar-input {
+	display: inline-block;
+	margin-left: 20px;
+	width: 120px;
+	font-size: 0.6rem;
+	color: rgba(0, 0, 0, 0.4);
+	padding: 0px 4px 0px 4px;
+}
+
+.calendar {
+	margin: 10px 0px 2px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filter-by-date {
+	padding: 7px;
+	margin: 10px 0px 0px;
+	width: 100%;
+}
+.Upcoming {
+	border-top: 0.5px solid rgb(165, 165, 165);
+	padding-top: 18px;
+	margin-top: 10px;
+	width: 100%;
+}
+.filter-upcoming {
+	width: 100%;
+}
+
+.filter-by-date:focus {
+	color: rgb(235, 244, 252);
+	background-color: rgb(10, 39, 65);
+}

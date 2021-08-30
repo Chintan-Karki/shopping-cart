@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 import { connect } from "react-redux";
+import SearchBar from "./searchBar/SearchBar";
 
 const Navbar = ({ cart }) => {
 	const [cartCount, setCartCount] = useState(0);
@@ -17,25 +18,24 @@ const Navbar = ({ cart }) => {
 
 	return (
 		<>
-		
-		<div className="navbar">
-			<Link to="/">
-				<h2 className="navbar__logo">Awesome Cart</h2>
-			</Link>
-			<Link to="/cart">
-				<div className="navbar__cart">
-					<h3 className="cart__title">Cart</h3>
-					{/* <img src="../../assets/shopping-cart.svg" alt="cart" /> */}
-					<i
-						className="cart__image uil uil-shopping-cart-alt"
-						alt="shopping cart"
-					></i>
-					<div className="cart__counter">{cartCount}</div>
-				</div>
-			</Link>
-		</div>
+			<div className="navbar">
+				<Link to="/">
+					<h2 className="navbar__logo">Awesome Cart</h2>
+				</Link>
+				<SearchBar />
+				<Link to="/cart">
+					<div className="navbar__cart">
+						<h3 className="cart__title">Cart</h3>
+						{/* <img src="../../assets/shopping-cart.svg" alt="cart" /> */}
+						<i
+							className="cart__image uil uil-shopping-cart-alt"
+							alt="shopping cart"
+						></i>
+						<div className="cart__counter">{cartCount}</div>
+					</div>
+				</Link>
+			</div>
 		</>
-
 	);
 };
 

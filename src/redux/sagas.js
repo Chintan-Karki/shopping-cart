@@ -6,6 +6,9 @@ import {
 	loadTvShowsSuccess,
 	loadUpcomingSuccess,
 } from "./Shopping/shopping-actions";
+import { format } from "date-fns";
+import { getLinkFromObject } from "../utils";
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function* fetchMovies(action) {
@@ -42,8 +45,49 @@ function* fetchUpcoming() {
 	}
 }
 
+function* fetchFilteredMovies(action) {
+	try {
+		const genreID = action.payload;
+		const genreUrlObj = {
+			with_genres: genreID,
+		};
+		const genre_movies = yield call(
+			handleLoadMovies,
+			getLinkFromObject(genreUrlObj)
+		);
+		yield put(loadMoviesSuccess(genre_movies));
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+function* fetchDateFilteredMovies(action) {
+	try {
+		const startDate = action.payload.startDate;
+		const endDate = action.payload.endDate;
+
+		const urlObject = {
+			adult: "false",
+			include_video: "false",
+			page: 1,
+			"primary_release_date.gte": format(startDate, "yyyy-MM-dd"),
+			"primary_release_date.lte": format(endDate, "yyyy-MM-dd"),
+		};
+
+		const dateFilteredMoviesURL = getLinkFromObject(urlObject);
+
+		const genre_movies = yield call(handleLoadMovies, dateFilteredMoviesURL);
+		yield put(loadMoviesSuccess(genre_movies));
+	} catch (error) {
+		console.log(error);
+		alert("Please make sure to fill both the start and end dates");
+	}
+}
+
 export default function* mySaga() {
 	yield takeLatest(actionTypes.LOAD_TMDB_MOVIES, fetchMovies);
 	yield takeLatest(actionTypes.LOAD_TMDB_TV_SHOWS, fetchTvShows);
 	yield takeLatest(actionTypes.LOAD_UPCOMING, fetchUpcoming);
+	yield takeLatest(actionTypes.LOAD_SELECTED_GENRE, fetchFilteredMovies);
+	yield takeLatest(actionTypes.FILTER_MOVIES_BY_DATE, fetchDateFilteredMovies);
 }

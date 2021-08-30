@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Loader from "react-loader-spinner";
 import "./Movies.css";
 
@@ -9,36 +9,15 @@ import { loadTmdbMovies } from "../../redux/Shopping/shopping-actions";
 import SelectionBar from "../NavBar/selectionBar/selectionBar";
 import Filters from "../Filters/Filters";
 
-const Products = ({ movies, loadMovies }) => {
-	const [query, setQuery] = useState("");
-	const [value, setValue] = useState("");
-
+const Products = ({ movies, loadMovies, query }) => {
 	useEffect(() => {
-		loadMovies(query);
+		loadMovies(query ? query : "");
 		// eslint-disable-next-line
 	}, [query]);
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setQuery(value);
-	};
 
 	return (
 		<>
 			<SelectionBar />
-			<form className="movies-form" onChange={handleSubmit}>
-				<input
-					className="movies-form-search"
-					type="text"
-					name="name"
-					value={value}
-					placeholder="e.g. Avengers"
-					onChange={(e) => {
-						setValue(e.target.value);
-					}}
-				/>
-				{/* <input className="movies-form-submit" type="submit" value="SEARCH" /> */}
-			</form>
 			<main className="main__container">
 				<Filters />
 

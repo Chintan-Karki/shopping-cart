@@ -16,67 +16,9 @@
 	margin-left: 5rem;
 }
 
-.movies-form {
-	width: 85vw;
-	padding: 1rem 3.5rem;
-	margin: 20px auto 0px auto;
-	display: flex;
-	align-items: center;
-	margin-bottom: 1rem;
-}
-
-.movies-form-search,
-.movies-form-submit {
-	padding: 10px 20px;
-	font-size: 90%;
-	font-weight: 400;
-	margin-bottom: 1rem;
-	border-radius: 0.4rem;
-	border: none;
-	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
-
-.movies-form-search {
-	width: 85vw;
-}
-
-.movies-form-submit {
-	width: 14vw;
-	margin-left: 1vw;
-	padding: 10px 2vw;
-	background-color: rgba(16, 16, 73, 0.863);
-	outline: none;
-	color: white;
-	cursor: pointer;
-	font-weight: 700;
-}
-
-.movies-form-submit:hover {
-	background-color: var(--secondary-color);
-	color: white;
-}
-
-.movies-form-submit:focus {
-	opacity: 0.95;
-}
-
-@media (max-width: 660px) {
-	.movies-form {
-		padding: 0rem;
-		display: flex;
-		flex-direction: row;
-	}
-	.movies-form-submit {
-		width: 40%;
-		padding: 10px 30px;
-		/* margin-left: 1vw; */
-	}
-}
-
 @media (max-width: 1034px) {
 	.movies:not(.movies-form) {
-		padding: 0 1rem 1.5rem;
+		padding: 0 1rem 1rem;
 		margin-left: 0 auto;
 	}
 }

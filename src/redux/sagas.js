@@ -80,6 +80,7 @@ function* fetchDateFilteredMovies(action) {
 		yield put(loadMoviesSuccess(genre_movies));
 	} catch (error) {
 		console.log(error);
+		alert("Please make sure to fill both the start and end dates");
 	}
 }
 

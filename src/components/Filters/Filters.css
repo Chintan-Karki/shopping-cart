@@ -60,15 +60,18 @@
 }
 
 .filter-by-date {
-	font-size: 0.7rem;
-	font-weight: 300;
-	padding: 10px;
+	padding: 7px;
 	margin: 10px 0px 0px;
-	height: 20px;
 	width: 100%;
-	color: rgb(49, 49, 49);
-	background-color: rgb(235, 244, 252);
-	border: 1px solid rgba(27, 31, 35, 0.15);
+}
+.Upcoming {
+	border-top: 0.5px solid rgb(165, 165, 165);
+	padding-top: 18px;
+	margin-top: 10px;
+	width: 100%;
+}
+.filter-upcoming {
+	width: 100%;
 }
 
 .filter-by-date:focus {

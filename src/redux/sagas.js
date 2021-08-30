@@ -7,6 +7,7 @@ import {
 	loadUpcomingSuccess,
 } from "./Shopping/shopping-actions";
 import { format } from "date-fns";
+import { getUrlFromObject } from "../utils";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -62,11 +63,21 @@ function* fetchDateFilteredMovies(action) {
 
 		const endDate = action.payload.endDate;
 		const stringEndDate = format(endDate, "yyyy-MM-dd");
+		const testURLObj = {
+			adult: "false",
+			include_video: "false",
+			page: 1,
+			primary_release_date_gte: stringStartDate,
+			primary_release_date_lte: stringEndDate,
+		};
+		const testURL = getUrlFromObject(testURLObj);
+		console.log(testURL);
 
 		// use date-fns library to format date into strings
 		// use a function to generate url by providing filter oject
 
-		const dateFilteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&&include_adult=false&include_video=false&page=1&primary_release_date.gte=${stringStartDate}&primary_release_date.lte=${stringEndDate}`;
+		// const dateFilteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&&include_adult=false&include_video=false&page=1&primary_release_date.gte=${stringStartDate}&primary_release_date.lte=${stringEndDate}`;
+		const dateFilteredMoviesURL = getUrlFromObject(testURLObj);
 
 		const genre_movies = yield call(handleLoadMovies, dateFilteredMoviesURL);
 		yield put(loadMoviesSuccess(genre_movies));

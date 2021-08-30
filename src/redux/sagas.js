@@ -7,7 +7,7 @@ import {
 	loadUpcomingSuccess,
 } from "./Shopping/shopping-actions";
 import { format } from "date-fns";
-import { getUrlFromObject } from "../utils";
+import { getLinkFromObject } from "../utils";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -48,8 +48,13 @@ function* fetchUpcoming() {
 function* fetchFilteredMovies(action) {
 	try {
 		const genreID = action.payload;
-		const filteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreID}`;
-		const genre_movies = yield call(handleLoadMovies, filteredMoviesURL);
+		const genreUrlObj = {
+			with_genres: genreID,
+		};
+		const genre_movies = yield call(
+			handleLoadMovies,
+			getLinkFromObject(genreUrlObj)
+		);
 		yield put(loadMoviesSuccess(genre_movies));
 	} catch (error) {
 		console.log(error);
@@ -59,25 +64,17 @@ function* fetchFilteredMovies(action) {
 function* fetchDateFilteredMovies(action) {
 	try {
 		const startDate = action.payload.startDate;
-		const stringStartDate = format(startDate, "yyyy-MM-dd");
-
 		const endDate = action.payload.endDate;
-		const stringEndDate = format(endDate, "yyyy-MM-dd");
-		const testURLObj = {
+
+		const urlObject = {
 			adult: "false",
 			include_video: "false",
 			page: 1,
-			primary_release_date_gte: stringStartDate,
-			primary_release_date_lte: stringEndDate,
+			"primary_release_date.gte": format(startDate, "yyyy-MM-dd"),
+			"primary_release_date.lte": format(endDate, "yyyy-MM-dd"),
 		};
-		const testURL = getUrlFromObject(testURLObj);
-		console.log(testURL);
 
-		// use date-fns library to format date into strings
-		// use a function to generate url by providing filter oject
-
-		// const dateFilteredMoviesURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&&include_adult=false&include_video=false&page=1&primary_release_date.gte=${stringStartDate}&primary_release_date.lte=${stringEndDate}`;
-		const dateFilteredMoviesURL = getUrlFromObject(testURLObj);
+		const dateFilteredMoviesURL = getLinkFromObject(urlObject);
 
 		const genre_movies = yield call(handleLoadMovies, dateFilteredMoviesURL);
 		yield put(loadMoviesSuccess(genre_movies));

@@ -47,7 +47,7 @@ function* fetchUpcoming() {
 
 function* fetchFilteredMovies(action) {
 	try {
-		const genreID = action.payload;
+		const genreID = action.payload.id;
 		const genreUrlObj = {
 			with_genres: genreID,
 		};

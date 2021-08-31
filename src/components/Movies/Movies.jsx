@@ -20,13 +20,7 @@ const Products = ({ movies, loadMovies, query }) => {
 			<SelectionBar />
 			<main className="main__container">
 				<Filters />
-
-				<section
-					className="movies"
-					style={{
-						justifyContent: "flex-start",
-					}}
-				>
+				<section className="movies">
 					{movies.length !== 0 ? (
 						movies.map((movie) => <Movie key={movie.id} movieData={movie} />)
 					) : (

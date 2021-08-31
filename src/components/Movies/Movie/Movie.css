@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	height: auto;
-	width: 250px;
+	width: 230px;
 	border-radius: 13px;
 	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
 		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -12,7 +12,7 @@
 
 .movie:hover {
 	transform: translateY(-0.2rem);
-	transition: 0.3s;
+	transition: 0.1s;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -51,12 +51,20 @@
 
 @media (max-width: 1080px) {
 	.movie {
-		width: 230px;
+		width: 200px;
 	}
 }
 
-@media (max-width: 830px) {
+@media (max-width: 860px) {
 	.movie {
-		width: 190%;
+		width: 100%;
+		margin: 0px 20px;
+	}
+}
+
+@media (max-width: 634px) {
+	.movie {
+		width: 100%;
+		margin: 10px;
 	}
 }

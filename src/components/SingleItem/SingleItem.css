@@ -8,15 +8,14 @@
 .singleItem__image {
 	height: 300px;
 	object-fit: contain;
-	margin-right: 1rem;
+	margin: 1rem;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 	border-radius: 10px;
 }
 
 .singleItem__details {
 	height: 300px;
-	padding: 0rem 1rem 1rem 1rem;
-	height: auto;
+	padding: 1rem 1rem 1rem 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -60,4 +59,33 @@
 
 .details__addBtn:hover {
 	opacity: 0.75;
+}
+
+@media (max-width: 634px) {
+	.singleItem {
+		margin: 2rem auto;
+		flex-direction: column;
+	}
+	.singleItem__image {
+		margin: 1rem;
+		object-fit: cover;
+	}
+
+	.details__addBtn {
+		width: fit-content;
+		font-size: 14px;
+		padding: 10px 17px;
+		margin-bottom: 0px;
+	}
+	.singleItem__details {
+		height: fit-content;
+		margin: 20px;
+	}
+	.details__title,
+	.details__price,
+	.details__lang,
+	.details__release,
+	.details__description {
+		margin-bottom: 1rem;
+	}
 }

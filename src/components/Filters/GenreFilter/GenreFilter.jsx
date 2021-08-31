@@ -22,7 +22,7 @@ const GenreFilter = ({ loadSelectedGenre }) => {
 				<button
 					key={genre.id}
 					className="FilterBtn"
-					onClick={() => loadSelectedGenre(genre.id)}
+					onClick={() => loadSelectedGenre(genre)}
 				>
 					{genre.name}
 				</button>
@@ -33,7 +33,7 @@ const GenreFilter = ({ loadSelectedGenre }) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		loadSelectedGenre: (genreID) => dispatch(loadSelectedGenre(genreID)),
+		loadSelectedGenre: (genre) => dispatch(loadSelectedGenre(genre)),
 	};
 };
 

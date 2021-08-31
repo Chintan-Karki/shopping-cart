@@ -95,3 +95,13 @@
 		justify-content: center;
 	}
 }
+
+@media (max-width: 275px) {
+	.navbar__logo {
+		font-size: 1.2rem;
+		margin: 10px auto;
+	}
+	.navbar__cart {
+		margin: 10px auto;
+	}
+}

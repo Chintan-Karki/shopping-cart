@@ -7,7 +7,6 @@ import TvShow from "./TvShow/TvShow";
 import SelectionBar from "../NavBar/selectionBar/selectionBar";
 
 import "../Movies/Movies.css";
-// import "./TvShows.css";
 
 function TvShows({ tvShows, loadTvShows }) {
 	useEffect(() => {
@@ -16,11 +15,12 @@ function TvShows({ tvShows, loadTvShows }) {
 	}, []);
 
 	let styleTV = {
-		maxWidth: "90vw",
+		maxWidth: "75vw",
+		margin: "0px auto",
 		display: "flex",
 		alignItems: "center",
 		alignContent: "center",
-		justifyContent: "center",
+		justifyContent: "space-around",
 	};
 
 	return (

@@ -6,10 +6,9 @@ import { connect } from "react-redux";
 import {
 	loadTmdbMovies,
 	loadTvShows,
-	// loadUpcoming,
 } from "../../../redux/Shopping/shopping-actions";
 
-function SelectionBar({ loadTvShows, loadUpcoming, loadMovies }) {
+function SelectionBar({ loadTvShows, loadMovies }) {
 	return (
 		<div className="button--container">
 			<Link to="/">
@@ -23,11 +22,6 @@ function SelectionBar({ loadTvShows, loadUpcoming, loadMovies }) {
 					TV Shows <i className="uil uil-tv-retro"></i>
 				</p>
 			</Link>
-			{/* <Link to="/">
-				<button className="selectionBtn" onClick={loadUpcoming}>
-					Upcoming <i className="uil uil-ticket"></i>
-				</button>
-			</Link> */}
 		</div>
 	);
 }
@@ -35,7 +29,6 @@ function SelectionBar({ loadTvShows, loadUpcoming, loadMovies }) {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		loadTvShows: () => dispatch(loadTvShows()),
-		// loadUpcoming: () => dispatch(loadUpcoming()),
 		loadMovies: () => dispatch(loadTmdbMovies("")),
 	};
 };

@@ -1,16 +1,13 @@
 .cart {
 	margin: 2rem auto;
-	/* width: 1100px; */
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
 .cart__items {
-	/* flex: 0.7; */
 	max-width: 600px;
 	min-width: 450px;
-	/* margin-right: 1rem; */
 }
 
 .cart__summary {
@@ -26,7 +23,7 @@
 	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
 		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 	border-radius: 10px;
-	transition: 0.4s ease-in-out;
+	transition: 0.2s ease-in-out;
 }
 
 @media (max-width: 1034px) {

@@ -83,10 +83,10 @@ export const loadCurrentItem = (item) => {
 	};
 };
 
-export const loadSelectedGenre = (genreId) => {
+export const loadSelectedGenre = (genre) => {
 	return {
 		type: actionTypes.LOAD_SELECTED_GENRE,
-		payload: genreId,
+		payload: genre,
 	};
 };
 

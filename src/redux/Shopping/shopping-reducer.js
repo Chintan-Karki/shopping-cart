@@ -80,6 +80,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				currentItem: action.payload,
 			};
 
+		case actionTypes.LOAD_SELECTED_GENRE:
+			return {
+				...state,
+				selected_genre: action.payload,
+			};
+
 		default:
 			return state;
 	}

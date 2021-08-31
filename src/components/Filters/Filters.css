@@ -8,10 +8,11 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 	background-color: white;
-
+	margin-top: 0.6rem;
+	border-radius: 0.3rem;
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
-	top: 100px;
+	top: 130px;
 }
 
 .FilterBtn {
@@ -26,11 +27,6 @@
 	padding: 0.5rem 1rem;
 	font-weight: 100;
 	margin: 2px 3px;
-}
-
-.FilterBtn:focus {
-	color: white;
-	background-color: rgb(10, 39, 65);
 }
 
 .date-filter {
@@ -71,11 +67,13 @@
 	margin-top: 10px;
 	width: 100%;
 }
-.filter-upcoming {
-	width: 100%;
+
+.active {
+	color: white;
+	background-color: rgb(10, 39, 65);
 }
 
-.filter-by-date:focus {
+.filter-by-date {
 	color: rgb(235, 244, 252);
 	background-color: rgb(10, 39, 65);
 }

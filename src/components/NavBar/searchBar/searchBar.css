@@ -1,7 +1,6 @@
 .searchBar-form {
 	max-width: 85%;
 	min-width: 350px;
-	margin-top: 10px;
 }
 
 .searchBar {
@@ -18,5 +17,6 @@
 @media (max-width: 634px) {
 	.searchBar-form {
 		min-width: 100%;
+		margin-bottom: 1rem;
 	}
 }

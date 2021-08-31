@@ -16,7 +16,7 @@ function SelectionBar({ loadTvShows, loadMovies }) {
 					Movies <i className="uil uil-film"></i>
 				</p>
 			</Link>
-			<p> | </p>
+			<p className="bar"> | </p>
 			<Link to="/tv-shows">
 				<p className="selectionBtn" onClick={loadTvShows}>
 					TV Shows <i className="uil uil-tv-retro"></i>

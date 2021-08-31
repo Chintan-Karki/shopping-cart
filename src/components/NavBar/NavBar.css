@@ -1,23 +1,26 @@
 .navbar {
 	z-index: 1;
 	font-family: var(--primary-font);
-	width: 100%;
+	width: 90%;
+	margin: 0 auto;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	align-content: center;
+
 	padding: 1.2rem;
-	background: rgb(251, 252, 255);
+	background: rgb(255, 255, 255);
+
 	position: sticky;
 	top: 0;
 	left: 0;
 	flex-wrap: wrap;
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
 }
 
 .navbar__logo {
 	font-size: 2rem;
-	margin-left: 30px;
 	margin-right: 30px;
 	font-weight: bold;
 	color: rgb(80, 80, 80);
@@ -33,7 +36,6 @@
 	align-items: center;
 	padding: 7px 10px;
 	cursor: pointer;
-	margin: 10px 0px 0px 30px;
 }
 
 .navbar__cart:hover {
@@ -72,20 +74,31 @@
 	}
 	.navbar__logo {
 		font-size: 1.7rem;
-		margin-left: 15px;
+		margin-bottom: 0px;
 	}
 	.navbar__cart {
-		margin: 20px 0px 10px 15px;
+		margin-left: 1rem;
+	}
+}
+
+@media (max-width: 865px) {
+	.navbar__cart {
+		margin-left: 0rem;
+	}
+}
+
+@media (max-width: 630px) {
+	.navbar__logo {
+		margin: 0rem 0rem;
 	}
 }
 
 @media (max-width: 715px) {
 	.navbar__logo {
 		font-size: 1.7rem;
-		margin-left: 15px;
+		margin-bottom: 1rem;
 	}
 	.navbar__cart {
-		margin-top: 10px;
 		margin-left: 15px;
 	}
 	.cart__title {
@@ -99,7 +112,6 @@
 @media (max-width: 275px) {
 	.navbar__logo {
 		font-size: 1.2rem;
-		margin: 10px auto;
 	}
 	.navbar__cart {
 		margin: 10px auto;

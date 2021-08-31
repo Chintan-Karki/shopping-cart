@@ -46,7 +46,7 @@ const DateFilter = ({ filterMoviesByDate }) => {
 						/>
 					</span>
 					<button className="FilterBtn filter-by-date" type="submit">
-						Filter by date
+						Filter
 					</button>
 				</form>
 			</div>

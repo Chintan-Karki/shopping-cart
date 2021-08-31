@@ -1,4 +1,4 @@
-import { put, call, takeLatest } from "@redux-saga/core/effects";
+import { put, call, takeLatest, select } from "@redux-saga/core/effects";
 import * as actionTypes from "./Shopping/shopping-types";
 import { handleLoadMovies, handleLoadTvShows } from "../api";
 import {
@@ -10,6 +10,15 @@ import { format } from "date-fns";
 import { getLinkFromObject } from "../utils";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
+
+/*
+ * Selectors. The query picks out the filters that are to be considered
+ */
+const getGenre = (state) => state.shop.selected_genre;
+const getStartDate = (state) =>
+	state.shop.date_filter ? state.shop.date_filter.startDate : "";
+const getEndDate = (state) =>
+	state.shop.date_filter ? state.shop.date_filter.endDate : "";
 
 function* fetchMovies(action) {
 	try {
@@ -47,10 +56,22 @@ function* fetchUpcoming() {
 
 function* fetchFilteredMovies(action) {
 	try {
+		const startDateFromState = yield select(getStartDate);
+		const endDateFromState = yield select(getEndDate);
 		const genreID = action.payload.id;
+
 		const genreUrlObj = {
 			with_genres: genreID,
+			"primary_release_date.gte":
+				startDateFromState instanceof Date
+					? format(startDateFromState, "yyyy-MM-dd")
+					: "",
+			"primary_release_date.lte":
+				endDateFromState instanceof Date
+					? format(endDateFromState, "yyyy-MM-dd")
+					: "",
 		};
+
 		const genre_movies = yield call(
 			handleLoadMovies,
 			getLinkFromObject(genreUrlObj)
@@ -63,15 +84,13 @@ function* fetchFilteredMovies(action) {
 
 function* fetchDateFilteredMovies(action) {
 	try {
+		const genreFromState = yield select(getGenre);
 		const startDate = action.payload.startDate;
 		const endDate = action.payload.endDate;
-
 		const urlObject = {
-			adult: "false",
-			include_video: "false",
-			page: 1,
 			"primary_release_date.gte": format(startDate, "yyyy-MM-dd"),
 			"primary_release_date.lte": format(endDate, "yyyy-MM-dd"),
+			with_genres: genreFromState ? genreFromState.id : "",
 		};
 
 		const dateFilteredMoviesURL = getLinkFromObject(urlObject);

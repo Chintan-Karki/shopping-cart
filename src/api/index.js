@@ -46,23 +46,3 @@ const handleLoadTvShows = async (urlTvShows) => {
 };
 
 export { handleLoadMovies, handleLoadTvShows };
-
-// Return Data example
-/**
-adult: false
-backdrop_path: "/sORO7a1cSghfWE5GD4cSJ0qTN8O.jpg"
-genre_ids: (3) [28, 12, 14]
-id: 521720
-original_language: "en"
-original_title: "Avengers Grimm: Time Wars"
-overview: "When Rumpelstiltskin tries to take over Earth once and for all, The Avengers Grimm must track him down through time in order to defeat him."
-popularity: 13.263
-poster_path: "/xfAcu74DRQXeM9XqFcE5MrSRzYP.jpg"
-release_date: "2018-05-01"
-title: "Avengers Grimm: Time Wars"
-video: false
-vote_average: 5
-vote_count: 42
-
-
-*/

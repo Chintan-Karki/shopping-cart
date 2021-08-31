@@ -4,6 +4,7 @@ import { loadSelectedGenre } from "../../../redux/Shopping/shopping-actions";
 
 const GenreFilter = ({ loadSelectedGenre }) => {
 	let [genres, setGenres] = useState([]);
+	let [active, setActive] = useState();
 
 	useEffect(() => {
 		const fetchGenres = async () => {
@@ -16,13 +17,18 @@ const GenreFilter = ({ loadSelectedGenre }) => {
 		fetchGenres();
 	}, []);
 
+	const handleGenreClick = (genre) => {
+		loadSelectedGenre(genre);
+		setActive(genre.id);
+	};
+
 	return (
 		<>
 			{genres.map((genre) => (
 				<button
 					key={genre.id}
-					className="FilterBtn"
-					onClick={() => loadSelectedGenre(genre)}
+					className={active === genre.id ? "FilterBtn active" : "FilterBtn"}
+					onClick={() => handleGenreClick(genre)}
 				>
 					{genre.name}
 				</button>

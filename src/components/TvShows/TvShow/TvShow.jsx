@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addToCart } from "../../../redux/Shopping/shopping-actions";
+import { Link } from "react-router-dom";
+import {
+	addToCart,
+	loadCurrentItem,
+} from "../../../redux/Shopping/shopping-actions";
 import "../../Movies/Movie/Movie.css";
 
-function TvShow({ tvShowData, addToCart }) {
-	
+function TvShow({ tvShowData, addToCart, loadCurrentItem }) {
 	return (
 		<div className="movie">
 			<img
@@ -13,15 +16,17 @@ function TvShow({ tvShowData, addToCart }) {
 				alt={tvShowData.title}
 			/>
 			<div className="movie__details">
-				<p
-					// onClick={() => loadCurrentItem(tvShowData)}
-					className="details__title"
-					title={tvShowData.title}
-				>
-					{tvShowData.title.length >= 24
-						? tvShowData.title.substring(0, 23) + ".."
-						: tvShowData.title}
-				</p>
+				<Link to={`/movie/${tvShowData.id}`}>
+					<p
+						onClick={() => loadCurrentItem(tvShowData)}
+						className="details__title"
+						title={tvShowData.title}
+					>
+						{tvShowData.title.length >= 24
+							? tvShowData.title.substring(0, 23) + ".."
+							: tvShowData.title}
+					</p>
+				</Link>
 				<p
 					// onClick={() => loadCurrentItem(tvShowData)}
 					className="details__desc"
@@ -48,6 +53,7 @@ function TvShow({ tvShowData, addToCart }) {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addToCart: (id) => dispatch(addToCart(id)),
+		loadCurrentItem: (tvShowData) => dispatch(loadCurrentItem(tvShowData)),
 	};
 };
 

@@ -31,14 +31,13 @@ button {
 	margin: 15px 20px;
 }
 
+.bar {
+	opacity: 0.6;
+}
+
 button:hover {
 	background-color: var(--secondary-color);
 	color: white;
-}
-
-button:focus {
-	opacity: 0.95;
-	background-color: rgb(41, 1, 1);
 }
 
 .btn-selected {
@@ -62,7 +61,13 @@ button:focus {
 }
 
 @media (max-width: 434px) {
-.button--container {
-	margin: 0px;
+	.button--container {
+		margin: 0px;
+	}
 }
+
+@media (max-width: 262px) {
+	.bar {
+		display: none;
+	}
 }

@@ -86,6 +86,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				selected_genre: action.payload,
 			};
 
+		case actionTypes.FILTER_MOVIES_BY_DATE:
+			return {
+				...state,
+				date_filter: action.payload,
+			};
+
 		default:
 			return state;
 	}

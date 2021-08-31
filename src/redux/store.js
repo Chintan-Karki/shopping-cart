@@ -1,17 +1,21 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux"; //*import {compose for Redux devtools}
 import createSagaMiddleware from "redux-saga";
 
 import rootReducer from "./rootReducer";
 import mySaga from "./sagas";
 
-// const store = createStore(rootReducer, composeWithDevTools());
 const sagaMiddleware = createSagaMiddleware();
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// Connecting middleware to the store
+// ! disabling Redux-dev-tool
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+//* Connecting middleware to the store
 const store = createStore(
 	rootReducer,
-	composeEnhancers(applyMiddleware(sagaMiddleware))
+	applyMiddleware(sagaMiddleware)
+
+	// ! disabling Redux-dev-tool
+	// composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
 sagaMiddleware.run(mySaga);
